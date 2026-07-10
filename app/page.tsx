@@ -34,8 +34,8 @@ export default async function Dashboard() {
         </h2>
         <p className="mt-1 max-w-[65ch] text-sm text-steel">
           Paid orders pull straight from eBay. Generate a single label, or check
-          off several and print them together, two to a sheet on Avery Presta
-          94278 stock.
+          off several and print them together — one 4&Prime;&times;6&Prime; label
+          per page.
         </p>
         <OrdersTable orders={orders} />
       </section>

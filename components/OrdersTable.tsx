@@ -61,8 +61,7 @@ export default function OrdersTable({ orders }: { orders: ClosedOrder[] }) {
       });
       if (!res.ok) throw new Error("Batch label generation failed");
       const blob = await res.blob();
-      const sheets = Math.ceil(selected.length / 2);
-      downloadBlob(blob, `labels-${selected.length}-orders-${sheets}-sheets.docx`);
+      downloadBlob(blob, `labels-${selected.length}-orders.docx`);
       markLabeled(selected);
       setSelected([]);
     } catch {
@@ -77,9 +76,7 @@ export default function OrdersTable({ orders }: { orders: ClosedOrder[] }) {
       {selected.length > 0 && (
         <div className="mb-3 flex items-center justify-between rounded-sm bg-ink px-4 py-2.5">
           <p className="text-sm text-chalk">
-            {selected.length} {selected.length === 1 ? "label" : "labels"} selected ·{" "}
-            {Math.ceil(selected.length / 2)}{" "}
-            {Math.ceil(selected.length / 2) === 1 ? "sheet" : "sheets"}
+            {selected.length} {selected.length === 1 ? "label" : "labels"} selected
           </p>
           <button
             onClick={printSelected}

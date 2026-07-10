@@ -2,9 +2,9 @@
 
 eBay auction dashboard + one-click Word address labels for Gameday Sports Cards.
 Postage is handled by eBay Labels; this app produces the **address label only**,
-formatted for **Avery Presta 94278** stock (two 6"×4" labels per letter sheet).
-Print one order at a time, or check off several and print them together —
-labels paginate automatically at two per sheet.
+one **4"×6" label per page**. Print one order at a time, or check off several and
+print them together as a multi-page doc — one label per page, ready for a thermal
+4×6 printer.
 
 ## Demo mode (default)
 
@@ -20,15 +20,11 @@ The "Generate label" buttons are fully functional in demo mode — they download
 Word documents built from the staged orders. Check the boxes next to several paid
 orders and a "Print N labels" bar appears above the table for batch printing.
 
-## Adjusting label alignment
+## Label format
 
-Avery confirms the 94278 label size (6"×4", 2 per sheet) but doesn't publish the
-exact margins for this template, so `lib/label-sheet.ts` ships with a reasonable
-standard layout (labels centered horizontally, evenly spaced vertically) as a
-starting point. All positioning is in named constants at the top of that file —
-`TOP_MARGIN`, `GAP_BETWEEN_LABELS`, `SIDE_MARGIN` — so if the first physical test
-print is off by a fraction of an inch, adjust those and reprint. No other code
-changes needed.
+Each label is its own 4"×6" page (`lib/label-sheet.ts`). A batch of N orders is an
+N-page document, one label per page. Page size and margins are named constants at
+the top of that file if you ever need to adjust them.
 
 ## Deploy (GitHub → Vercel)
 

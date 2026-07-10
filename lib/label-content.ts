@@ -43,7 +43,7 @@ export function buildLabelParagraphs(order: ClosedOrder): Paragraph[] {
         alignment: AlignmentType.CENTER,
         spacing: { after: 40 },
         children: [
-          new TextRun({ text: line, bold: true, size: 32, font: "Arial" }), // 16pt — fits a 4"-tall label
+          new TextRun({ text: line, bold: true, size: 44, font: "Arial" }), // 22pt — fills a 4x6 page
         ],
       })
     );

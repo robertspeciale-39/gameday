@@ -19,13 +19,12 @@ export async function POST(req: NextRequest) {
   }
 
   const buffer = await buildLabelSheetDocx(orders);
-  const sheetCount = Math.ceil(orders.length / 2);
 
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type":
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "Content-Disposition": `attachment; filename="labels-${orders.length}-orders-${sheetCount}-sheets.docx"`,
+      "Content-Disposition": `attachment; filename="labels-${orders.length}-orders.docx"`,
     },
   });
 }
